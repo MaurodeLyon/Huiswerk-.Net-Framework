@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using ToDo_Instructor.Models;
+using ToDo_Instructor.ViewModels;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -24,28 +25,10 @@ namespace ToDo_Instructor
     /// </summary>
     public sealed partial class MainPage : Page
     {
-
-        private ObservableCollection<TodoItem> _items;//List<TodoItem> _items;
         public MainPage()
         {
             this.InitializeComponent();
-
-            _items = new ObservableCollection<TodoItem>();// = new List<TodoItem>();
-            DataContext = _items;
-
-            _items.Add(new TodoItem
-            {
-                Description = "My TODO item"
-            });
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            var newTodoItem = new TodoItem
-            {
-                Description = itemDescription.Text
-            };
-            _items.Add(newTodoItem);
+            DataContext = new MainViewModel();
         }
     }
 }

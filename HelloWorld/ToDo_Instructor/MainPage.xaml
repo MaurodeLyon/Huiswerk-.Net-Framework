@@ -18,11 +18,11 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="auto"/>
             </Grid.ColumnDefinitions>
-            <TextBox x:Name="itemDescription"/>
-            <Button Content="Add" Click="Button_Click" Grid.Column="1"/>
+            <TextBox Text="{Binding Path=NewItemDescription, Mode=TwoWay}"/>
+            <Button Content="Add" Command="{Binding AddTodoItemCommand}" Grid.Column="1"/>
         </Grid>  
 
-            <ListView ItemsSource="{Binding}" Grid.Row="1">
+            <ListView ItemsSource="{Binding Path=Items}" Grid.Row="1">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
